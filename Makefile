@@ -7,10 +7,9 @@ clean:
 	rm -f termux-elf-cleaner
 
 install: termux-elf-cleaner
-	mkdir -p $(PREFIX)/bin
-	install termux-elf-cleaner $(PREFIX)/bin/termux-elf-cleaner
+	install -D -m 0755 termux-elf-cleaner $(DESTDIR)$(PREFIX)/bin/termux-elf-cleaner
 
 uninstall:
-	rm -f $(PREFIX)/bin/termux-elf-cleaner
+	rm -f $(DESTDIR)$(PREFIX)/bin/termux-elf-cleaner
 
 .PHONY: clean install uninstall
